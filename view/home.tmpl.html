@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<a ui-sref="addContact" class="btn" >Add Contacts</a>
+			Search: <input type="text" placeholder="Search Contacts" ng-Model="searchContacts">
+			<ul ng-repeat="contact in contacts |filter:searchContacts" >
+				<li ng-hide="showEditForm" >{{contact.name}}</li>
+				<li ng-hide="showEditForm">{{contact.phone}}</li>
+				<li ng-hide="showEditForm"><span class="glyphicon glyphicon-edit" ng-click="showEditForm=true" ></span></li>
+				<li ng-hide="showEditForm"><span class="glyphicon glyphicon-remove" ng-click="removeContact($index)"></span></li>
+
+				<form ng-show="showEditForm" ng-submit="showEditForm=false">
+
+					<div class="form-group">
+						<label >Name:</label>
+						<input type="text" class="form-control" id="usr" ng-model="contact.name" value="contact.name">
+					</div>
+					<div class="form-group">
+						<label>Phone number:</label>
+						<input type="text" class="form-control" id="phone" ng-model="contact.phone" value="contact.phone">
+					</div>
+
+					<div class="form-group">
+						<button type="submit" >Save Contacts</button>
+					</div>
+				</form>
+
+			</ul>
+		</div>
+		
+
+	</div>
+</div>
+
+{{name}}
+{{contacts}}
